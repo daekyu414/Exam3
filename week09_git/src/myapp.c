@@ -1,12 +1,31 @@
-#include <stdio.h>
+#include "myops.h"
 
-double calculate(char* op, double a, double b)
-{
-    printf("Calculating.....\n");
+double calculate(char* op, double a, double b) {
+    printf("Calculating......\n");
+
+    if (strcmp(op, "+") == 0) {
+        return add(a, b);
+    }
+
+    else if (strcmp(op, "-") == 0) {
+        return sub(a, b);
+    }
+
+    else if (strcmp(op, "*") == 0) {
+        return mul(a, b);
+    }
+
+    else if (strcmp(op, "/") == 0) {
+        return div(a, b);
+    }
+
+    else {
+        printf("Unsupported operation: %s\n", op);
+        return 0;
+    }
 }
 
-int main(void)
-{
+int main(void) {
     double a, b;
     char op[3];
 
